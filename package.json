@@ -1,6 +1,6 @@
 {
-  "name": "semantic-release",
-  "description": "Automated semver compliant package publishing",
+  "name": "semantic-release-squash",
+  "description": "Automated semver compliant package publishing working with squash-and-merge commits",
   "version": "0.0.0-development",
   "type": "module",
   "author": "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
@@ -15,15 +15,16 @@
     "timeout": "2m"
   },
   "bin": {
-    "semantic-release": "bin/semantic-release.js"
+    "semantic-release-squash": "bin/semantic-release-squash.js"
   },
   "bugs": {
-    "url": "https://github.com/semantic-release/semantic-release/issues"
+    "url": "https://github.com/SofairOfficial/semantic-release-squash/issues"
   },
   "contributors": [
     "Gregor Martynus (https://twitter.com/gr2m)",
     "Pierre Vanduynslager (https://twitter.com/@pvdlg_)",
-    "Matt Travi <npm@travi.org> (https://matt.travi.org/)"
+    "Matt Travi <npm@travi.org> (https://matt.travi.org/)",
+    "SofairOfficial developpers (https://github.com/SofairOfficial/)"
   ],
   "dependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
@@ -40,12 +41,14 @@
     "find-versions": "^5.1.0",
     "get-stream": "^6.0.0",
     "git-log-parser": "^1.2.0",
+    "git-url-parse": "^13.1.0",
     "hook-std": "^3.0.0",
     "hosted-git-info": "^6.0.0",
     "lodash-es": "^4.17.21",
     "marked": "^4.1.0",
     "marked-terminal": "^5.1.1",
     "micromatch": "^4.0.2",
+    "octokit": "^2.0.14",
     "p-each-series": "^3.0.0",
     "p-reduce": "^3.0.0",
     "read-pkg-up": "^9.1.0",
@@ -85,7 +88,7 @@
     "index.js",
     "cli.js"
   ],
-  "homepage": "https://github.com/semantic-release/semantic-release#readme",
+  "homepage": "https://github.com/SofairOfficial/semantic-release-squash#readme",
   "keywords": [
     "author",
     "automation",
@@ -122,20 +125,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/semantic-release/semantic-release.git"
+    "url": "git+https://github.com/SofairOfficial/semantic-release-squash"
   },
   "scripts": {
     "codecov": "codecov -f coverage/coverage-final.json",
     "lint": "prettier --check \"*.{js,json,md}\" \".github/**/*.{md,yml}\" \"docs/**/*.md\" \"{bin,lib,test}/**/*.js\"",
     "lint:fix": "prettier --write \"*.{js,json,md}\" \".github/**/*.{md,yml}\" \"docs/**/*.md\" \"{bin,lib,test}/**/*.js\"",
     "pretest": "npm run lint",
-    "semantic-release": "./bin/semantic-release.js",
+    "semantic-release-squash": "./bin/semantic-release-squash.js",
     "test": "c8 ava --verbose",
     "test:ci": "c8 ava --verbose"
   },
   "renovate": {
     "extends": [
-      "github>semantic-release/.github"
+      "github>semantic-release-squash/.github"
     ]
   }
 }
